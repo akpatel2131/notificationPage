@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Overpass:wght@200;300;400;500;700&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+  <title>Frontend Mentor | Notifications page</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    body {
+      background-color: hsl(205, 33%, 90%);
+    }
+    .note-card {
+        width : 30rem;
+        height : auto;
+        background-color: #ffffff;
+        box-sizing: border-box;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        border-radius: 20px;
+        padding: 20px;
+        box-shadow: 5px 5px rgba(200, 192, 192, 0.2);
+    }
+
+    .note-cardBody{
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+      padding: 10px;
+      width: 100%;
+     
+    }
+
+    .header-card{
+      display: flex;
+      justify-content: flex-start;
+      box-sizing: border-box;
+      margin-bottom: 5px;
+      font-family: "Plus Jakarta Sans" ;
+      font-weight: 700;
+    }
+    .header-button{
+      position: relative;
+      left: 9rem;
+      background-color: transparent;
+      border-radius: 5px;
+      border: none;
+      box-sizing: content-box;
+      padding: 3px 10px;
+      font-family: "Plus Jakarta Sans" ;
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    .notification{
+      box-sizing: border-box;
+      margin-right: 5px;
+      font-family: "Plus Jakarta Sans" ;
+      font-weight: 700;
+      font-size: 20px;
+    }
+
+    .unread-note{
+      width: 1.5rem;
+      height: 1.5rem;
+      background-color: hsl(219, 14%, 63%);
+      border-radius:  5px;
+      color: #ffffff;
+      text-align: center;
+      font-size: 16px;
+    }
+
+    .flex {
+      display: flex;
+      flex-direction: row;
+    }
+    .flex-column {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .notification-01{
+      box-sizing: border-box;
+      padding: 5px 10px;
+      margin-top: 5px;
+      /* background-color: hsl(211, 68%, 94%); */
+      height: auto;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .red-ball{
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      box-sizing: border-box;
+      position: relative;
+      bottom: px;
+      left: 2px;
+      background-color: red;
+      border-radius: 4px;
+    }
+    .discription{
+      font-family: "Plus Jakarta Sans" ;
+      font-size: 13px;
+      box-sizing: border-box;
+      padding: 0px 10px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+
+    }
+    .time {
+      font-family: "Plus Jakarta Sans" ;
+      font-size: 13px;
+      box-sizing: content-box;
+      padding: 0px 10px;
+      opacity: 0.6;
+    }
+
+    .pictures{
+      align-self: flex-start;
+    }
+
+    .para{
+      font-family: "Plus Jakarta Sans" ;
+      font-size: 13px;
+      box-sizing: border-box;
+      font-weight: bold;
+      color: rgba(0, 0, 0, 0.6);
+      margin: 10px 20px;
+      padding: 5px;
+      text-align: justify;
+      border: 1.5px solid rgba(0, 0, 0, 0.2);
+    }
+
+    .notification-01:hover{
+      background-color: hsl(211, 68%, 94%);
+    }
+
+    .header-button:hover{
+      background-color: hsl(211, 68%, 94%);
+    }
+
+    @media (min-width : 300px) and (max-width : 500px){
+      .note-card {
+        width : 20rem;
+        padding: 10px;
+    }
+    .header-button{
+      left: 0.5rem;
+    }
+    .header-card{
+      align-items: center;
+    }
+    }
+  </style>
+</head>
+<body>
+  <div class = "note-card">
+    <div class = "note-cardBody">
+      <header>
+        <div class = "header-card">
+          <div class = "notification"> Notifications</div>
+          <div class="unread-note" id="noteNumber"> 3 </div>
+          <button type="button" class ="header-button" onclick="clearNewNotification()">Mark all as read</button>
+        </div>
+      </header>
+      <section>
+        <div class = "notification-01 flex" id="1" style="background-color: hsl(211, 68%, 94%); ">
+          <img   class = "pictures"width ="45rem" height="45rem" src="./assets/images/avatar-mark-webber.webp" alt="markphoto">
+          <div class="flex-column">
+            <div class = "discription">
+              <strong>Mark Webber</strong> reacted to your recent post <strong>My first tournament today!</strong>
+              <span class="red-ball" id="A"></span>
+            </div>
+            <div class="time"> 1m ago</div>
+          </div>
+        </div>
+        <div class = "notification-01 flex" id="2" style="background-color: hsl(211, 68%, 94%); ">
+          <img   class = "pictures"width ="45rem" height="45rem" src="./assets/images/avatar-angela-gray.webp" alt="markphoto">
+          <div class="flex-column">
+              
+              <div class = "discription"><strong>Angela Gray</strong> followed you 
+                <span class = "red-ball" id="B"></span>
+               </div>
+            <div class="time"> 5m ago</div>
+          </div>
+        </div>
+        <div class = "notification-01 flex" id="3" style="background-color: hsl(211, 68%, 94%); ">
+          <img   class = "pictures"width ="45rem" height="45rem" src="./assets/images/avatar-jacob-thompson.webp" alt="markphoto">
+          <div class="flex-column">
+              <div class = "discription"><strong>Jacob Thompson </strong>has joined your group <strong>Chess Club</strong> 
+                <span class = "red-ball" id="C"></span> 
+              </div>
+            <div class="time"> 1 day ago</div>
+          </div>
+        </div>
+        <div class = "notification-01 flex" id="4">
+          <img   class = "pictures"width ="45rem" height="45rem" src="./assets/images/avatar-rizky-hasanuddin.webp" alt="markphoto">
+          <div class="flex-column">
+            <div class = "discription"><strong>Rizky Hasanuddin</strong> sent you a private message 
+              <span id="D"></span>
+             </div>
+            <div class="time"> 5 days ago</div>
+            <div class="para">
+              Hello, thanks for setting up the Chess Club. I've been a member for a few weeks now and 
+    I'm already having lots of fun and improving my game.
+            </div>
+          </div>
+        </div>
+        <div class = "notification-01 flex" id="5">
+          <img class="pictures" width ="45rem" height="45rem" src="./assets/images/avatar-jacob-thompson.webp" alt="markphoto">
+          <div class="flex-column">
+              <div class = "discription">
+                <strong>Kimberly Smith </strong> commented on your picture 
+                <span id="E"></span>
+               </div>
+            <div class="time"> 1 week ago</div>
+          </div>
+          <img class="pictures" width ="45rem" height="45rem" src="./assets/images/image-chess.webp" alt="commentted-img">
+        </div>
+        <div class = "notification-01 flex" id="6">
+          <img   
+          class = "pictures"
+          width ="45rem" 
+          height="45rem" 
+          src="./assets/images/avatar-nathan-peterson.webp" 
+          alt="markphoto">
+  
+          <div class="flex-column">
+              <div class = "discription"> <strong>Nathan Peterson</strong> reacted to your recent post <strong>5 end-game strategies to increase your win rate </strong> 
+                <span id="F"></span>
+              </div>
+            <div class="time"> 2 weeks ago</div>
+          </div>
+        </div>
+        <div class = "notification-01 flex" id="7">
+          <img   
+          class = "pictures"
+          width ="45rem" 
+          height="45rem" 
+          src="./assets/images/avatar-anna-kim.webp" 
+          alt="markphoto">
+  
+          <div class="flex-column">
+              <div class = "discription"> 
+                <strong>Anna Kim</strong> left the group Chess Club 
+                <span id="G"></span>
+               </div>
+            <div class="time">2 weeks ago</div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>  
+    <script>
+      function clearNewNotification(){
+        let notificationArray = [1,2,3,4,5,6,7];
+        let redDotArray = ["A","B","C","D","E","F","G"];
+        for(let i=0 ; i<notificationArray.length ;i++){
+          let notification = document.getElementById(`${notificationArray[i]}`);
+          notification.style = "background-Color :transparent";
+        }
+        for(let j=0; j<redDotArray.length ; j++){
+          let reddot = document.getElementById(redDotArray[j]);
+          console.log(reddot);
+          reddot.removeAttribute("class");
+        }
+        document.getElementById("noteNumber").textContent = 0;
+      }
+
+      // function notificationNumber (){
+      //   let notificationArray = [1,2,3,4,5,6,7];
+      //     let n =0;
+      //     for (let i=0; i<notificationArray.length ; i++){
+      //       if (document.getElementById(`${notificationArray[i]}`).style === "background-color: hsl(211, 68%, 94%);"){
+      //         n=n+1;
+      //         document.getElementById("noteNumber").textContent = n;
+      //       }
+      //     }
+      // }
+
+      // notificationNumber ()
+    </script>
+</body>
+</html>
